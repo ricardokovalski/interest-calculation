@@ -1,0 +1,33 @@
+{
+  "name": "ricardokovalski/interest-calculator",
+  "description": "Biblioteca para calcular juros.",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Ricardo Kovalski",
+      "email": "ricardokovalskicruz@gmail.com",
+      "role": "Maintainer"
+    }
+  ],
+  "license": "MIT",
+  "keywords": [
+    "calculator",
+    "compound-interest",
+    "financial",
+    "interest",
+    "interest-calculator",
+    "simple"
+  ],
+  "require": {
+    "php": ">=5.6",
+    "ext-json": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^5.7"
+  },
+  "autoload": {
+    "psr-4": {
+      "Moguzz\\": "src/"
+    }
+  }
+}
