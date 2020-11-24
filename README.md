@@ -1,4 +1,4 @@
-# # ricardokovalski/calculator-interest-sdk
+# ricardokovalski/calculator-interest-sdk
   
 [![Latest Stable Version](https://poser.pugx.org/ricardokovalski/calculator-installment/v/stable)](https://packagist.org/packages/ricardokovalski/calculator-interest-sdk)
 [![Author](http://img.shields.io/badge/author-@ricardokovalski-blue.svg?style=flat-square)](https://github.com/ricardokovalski)
