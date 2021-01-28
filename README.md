@@ -1,13 +1,13 @@
-# ricardokovalski/calculator-interest-sdk
+# ricardokovalski/interest-calculation-sdk
   
-[![Latest Stable Version](https://poser.pugx.org/ricardokovalski/calculator-installment/v/stable)](https://packagist.org/packages/ricardokovalski/calculator-interest-sdk)
+[![Latest Stable Version](https://poser.pugx.org/ricardokovalski/interest-calculation-sdk/v/stable)](https://packagist.org/packages/ricardokovalski/interest-calculation-sdk)
 [![Author](http://img.shields.io/badge/author-@ricardokovalski-blue.svg?style=flat-square)](https://github.com/ricardokovalski)
-[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://github.com/ricardokovalski/calculator-interest-sdk/blob/master/LICENSE)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://github.com/ricardokovalski/interest-calculation-sdk/blob/master/LICENSE)
   
 ## Instalação
   
 ```
-composer require ricardokovalski/calculator-interest-sdk
+composer require ricardokovalski/interest-calculation-sdk
 ```
   
 ## Uso básico

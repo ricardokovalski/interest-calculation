@@ -3,4 +3,3 @@ vendor/
 tests/build/
 composer.lock
 index.php
-settings.php

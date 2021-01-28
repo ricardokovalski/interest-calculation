@@ -1,5 +1,5 @@
 {
-  "name": "ricardokovalski/calculator-interest-sdk",
+  "name": "ricardokovalski/interest-calculation-sdk",
   "description": "SDK com regras para cálculo de juros.",
   "type": "library",
   "authors": [
@@ -10,14 +10,7 @@
     }
   ],
   "license": "MIT",
-  "keywords": [
-    "calculator",
-    "compound-interest",
-    "financial",
-    "interest",
-    "interest-calculator",
-    "simple"
-  ],
+  "keywords": ["calculation", "calculator", "interest", "interest-calculation", "interest-rates"],
   "require": {
     "php": ">=5.6",
     "ext-json": "*"
@@ -27,7 +20,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Moguzz\\Interest\\": "src/"
+      "RicardoKovalski\\InterestCalculation\\": "src/"
     }
   }
 }
