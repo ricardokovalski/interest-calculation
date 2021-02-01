@@ -1,63 +1,101 @@
 <?php
 
-class FinancialTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+use RicardoKovalski\InterestCalculation\InterestValueException;
+use RicardoKovalski\InterestCalculation\Types\Financial;
+
+class FinancialTest extends TestCase
 {
     private $interest;
 
-    public function testAssertTrueInterestRatesZeroed()
+    public function testAssertTrueInterestValueIsZeroed()
     {
-        $this->interest = new Moguzz\Interest\Types\Financial();
-        $this->assertTrue($this->interest->interestRatesIsZeroed());
+        $this->interest = new Financial();
+        $this->assertTrue($this->interest->interestValueIsZeroed());
     }
 
-    public function testExpectedExceptionWhenInterestRatesIsNotFloatTypeOnConstruct()
+    public function testExpectedExceptionWhenInterestValueIsNotFloatTypeOnConstruct()
     {
-        $this->expectException(InvalidArgumentException::class);
-        $this->interest = new Moguzz\Interest\Types\Financial('3.20');
+        $this->expectException(InterestValueException::class);
+        $this->interest = new Financial('3.20');
     }
 
-    public function testExpectedExceptionWhenInterestRatesIsNotFloatTypeOnSetInterestRates()
+    public function testExpectedExceptionWhenInterestValueIsNotFloatTypeOnSetInterestValue()
     {
-        $this->interest = new Moguzz\Interest\Types\Financial();
+        $this->interest = new Financial();
+        $this->expectException(InterestValueException::class);
+        $this->interest->appendInterestValue('9,68');
+    }
 
-        $this->expectException(InvalidArgumentException::class);
-        $this->interest->setInterestRates('9,68');
+    public function testAssertEqualsInterestValue()
+    {
+        $this->interest = new Financial(2.75);
+        $this->assertEquals(2.75, $this->interest->getInterestValue());
     }
 
     public function testAssertEqualsInterestRates()
     {
-        $this->interest = new Moguzz\Interest\Types\Financial();
-        $this->interest->setInterestRates(2.75);
-
-        $this->assertFalse($this->interest->interestRatesIsZeroed());
-
+        $this->interest = new Financial(2.75);
+        $this->assertFalse($this->interest->interestValueIsZeroed());
         $this->assertEquals(0.0275, $this->interest->getInterestRates());
     }
 
     public function testAssertEqualsTotalCapital()
     {
-        $this->interest = new Moguzz\Interest\Types\Financial();
-        $this->interest->setInterestRates(3.79)
-            ->setTotalCapital(520.69);
-
-        $this->assertFalse($this->interest->interestRatesIsZeroed());
-
+        $this->interest = new Financial(3.79);
+        $this->interest->appendTotalCapital(520.69);
+        $this->assertFalse($this->interest->interestValueIsZeroed());
         $this->assertEquals(520.69000000000005, $this->interest->getTotalCapital());
     }
 
-    public function testAssertEqualsValueCalculated()
+    public function testAssertEqualsResetInterestValue()
     {
-        $this->interest = new Moguzz\Interest\Types\Financial();
-        $this->interest->setTotalCapital(750.98);
+        $this->interest = new Financial(3.79);
+        $this->assertEquals(3.79, $this->interest->getInterestValue());
+        $this->interest->resetInterestValue(2.95);
+        $this->assertEquals(2.95, $this->interest->getInterestValue());
+    }
 
-        $this->assertEquals(750.98, $this->interest->getValueCalculated());
+    public function testAssertEqualsResetTotalCapital()
+    {
+        $this->interest = new Financial(2.99);
+        $this->interest->appendTotalCapital(202.95);
+        $this->assertEquals(202.95, $this->interest->getTotalCapital());
+        $this->interest->resetTotalCapital(101.58);
+        $this->assertEquals(101.58, $this->interest->getTotalCapital());
+    }
 
-        $this->interest->setInterestRates(2.75);
+    public function testAssertEqualsAppendInterestValue()
+    {
+        $this->interest = new Financial(3.75);
+        $this->assertEquals(3.75, $this->interest->getInterestValue());
+        $this->interest->appendInterestValue(1.15);
+        $this->assertEquals(4.90, $this->interest->getInterestValue());
+    }
 
-        $this->assertEquals(750.98, $this->interest->getValueCalculated());
+    /**
+     * @dataProvider providerValueCalculatedByInstallment
+     * @param $valueCalculated
+     * @param $installment
+     */
+    public function testAssertEqualsValueCalculatedByInstallment($valueCalculated, $installment)
+    {
+        $this->interest = new Financial(2.75);
+        $this->interest->appendTotalCapital(750.98);
+        $this->assertEquals($valueCalculated, $this->interest->getValueCalculatedByInstallment($installment));
+    }
 
-        $this->interest->setNumberInstallment(2);
-
-        $this->assertEquals(195.52449534525223, $this->interest->getValueCalculated());
+    /**
+     * @return array
+     */
+    public function providerValueCalculatedByInstallment()
+    {
+        return [
+            [750.98, 1],
+            [782.09798138100894, 2],
+            [792.65736078101031, 3],
+            [803.31005386011498, 4],
+            [814.05601256773991, 5]
+        ];
     }
 }
