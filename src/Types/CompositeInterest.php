@@ -87,6 +87,7 @@ abstract class CompositeInterest implements Interest
     public function resetInterestValue($interestValue = 0.00)
     {
         $this->interestValue = $interestValue;
+        $this->interestRates = $this->parseToInterestRates($interestValue);
         return $this;
     }
 

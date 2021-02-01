@@ -12,71 +12,58 @@ composer require ricardokovalski/interest-calculation-sdk
   
 ## Uso básico
 
-### Juros Simples
-
-```php
-use Moguzz\Interest\Types\Simple;
-
-$interestRates = (new Simple(0.98))
-    ->setTotalCapital(227.49);
-
-$interestRates->getInterestRates(); // 0.0098
-$interestRates->getValueCalculated(); // 229.719402
-
-$interestRates->setInterestRates(1.30);
-
-$interestRates->getInterestRates(); // 0.013
-$interestRates->getValueCalculated(); // 230.44737
-```
-  
-### Juros Compostos
-  
-```php
-use Moguzz\Interest\Types\Compound;
-  
-$interestRates = (new Compound(3.69))
-    ->setTotalCapital(750.98)
-    ->setNumberInstallment(1);
-  
-$interestRates->getInterestRates(); // 0.0369
-$interestRates->getNumberInstallment(); // 1
-$interestRates->getValueCalculated(); // 750.98
-
-$interestRates->setNumberInstallment(2);
-
-$interestRates->getInterestRates(); // 0.0369
-$interestRates->getNumberInstallment(); // 2
-$interestRates->getValueCalculated(); // 778.691162
-
-$interestRates->setInterestRates(1.99);
-
-$interestRates->getInterestRates(); // 0.0199
-$interestRates->getNumberInstallment(); // 2
-$interestRates->getValueCalculated(); // 765.924502
-```
-
 ### Juros de Financiamento
 
 ```php
-use Moguzz\Interest\Types\Financial;
+use RicardoKovalski\InterestCalculation\Types\Financial;
 
-$interestRates = (new Financial(2.99))
-    ->setTotalCapital(400.00)
-    ->setNumberInstallment(1);
+$interest = new Financial(0.98);
 
-$interestRates->getInterestRates(); // 0.0299
-$interestRates->getNumberInstallment(); // 1
-$interestRates->getValueCalculated(); // 400
+// Adiciona um valor ao TotalCapital
+$interest->appendTotalCapital(227.49);
 
-$interestRates->setNumberInstallment(2);
+// Adiciona um valor ao InterestValue
+$interest->appendInterestValue(1.55);
 
-$interestRates->getInterestRates(); // 0.0299
-$interestRates->getNumberInstallment(); // 2
-$interestRates->getValueCalculated(); // 104.50702103552
+// Reseta o valor de TotalCapital para 0.00
+$interest->resetTotalCapital();
 
-$interestRates->setInterestRates(1.99);
+// Reseta o valor de TotalCapital para 200.00
+$interest->resetTotalCapital(200.00);
 
-$interestRates->getInterestRates(); // 0.0199
-$interestRates->getNumberInstallment(); // 2
-$interestRates->getValueCalculated(); // 104.50702103552
+// Reseta o valor de InterestValue para 0.00
+$interest->resetInterestValue();
+
+// Reseta o valor de InterestValue para 2.75
+$interest->resetInterestValue(2.75);
+
+// Obter o valor de TotalCapital
+$interest->getTotalCapital();
+
+// Obter o valor de InterestValue
+$interest->getInterestValue();
+
+// Obter o valor de InterestRates
+$interest->getInterestRates();
+
+// Verifica se o valor de InterestValue está zerado
+$interest->interestValueIsZeroed();
+```
+
+### Outros tipos de Juros
+
+Para juros compostos, utilize a classe Compound.
+
+```php
+use RicardoKovalski\InterestCalculation\Types\Compound;
+  
+$interest = new Compound(3.69);
+```
+
+Para juros simples, utilize a classe Simple.
+
+```php
+use RicardoKovalski\InterestCalculation\Types\Simple;
+
+$interest = new Simple(2.99);
 ```
