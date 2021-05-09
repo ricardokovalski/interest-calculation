@@ -1,5 +1,5 @@
 {
-    "name": "ricardokovalski/interest-calculation-sdk",
+    "name": "ricardokovalski/interest-calculation",
     "description": "SDK com regras para cálculo de juros.",
     "type": "library",
     "authors": [
