@@ -1,13 +1,6 @@
 # ricardokovalski/interest-calculation
 
-<p align="center">
-    <a href="https://github.com/ricardokovalski/interest-calculation"><img src="http://img.shields.io/badge/source-ricardokovalski/interest--calculation-blue.svg" alt="Source Code"></a>
-    <a href="https://php.net"><img src="https://img.shields.io/badge/php-%3E=5.6-777bb3.svg" alt="PHP Programming Language"></a>
-    <a href="https://github.com/ricardokovalski/interest-calculation/releases"><img src="https://img.shields.io/github/release/ricardokovalski/interest-calculation.svg" alt="Source Code"></a>
-    <a href="https://packagist.org/packages/ricardokovalski/interest-calculation"><img src="https://poser.pugx.org/ricardokovalski/interest-calculation/v/stable" alt="Source Code"></a>
-    <a href="https://github.com/ricardokovalski"><img src="http://img.shields.io/badge/author-@ricardokovalski-blue.svg" alt="Author"></a>
-    <a href="https://github.com/ricardokovalski/interest-calculation/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg" alt="Read License"></a>
-</p>
+
   
 ## Instalação
   
