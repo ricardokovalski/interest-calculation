@@ -32,5 +32,6 @@
         "psr-4": {
             "RicardoKovalski\\InterestCalculation\\Tests\\": "tests/"
         }
-    }
+    },
+    "minimum-stability": "dev"
 }
