@@ -1,4 +1,8 @@
-# ricardokovalski/interest-calculation
+<h1 align="center">ricardokovalski/interest-calculation</h1>
+
+<p align="center">
+    <strong>Uma biblioteca PHP com as regras para cálculo de juros.</strong>
+</p>
 
 <p align="center">
     <a href="https://github.com/ricardokovalski/interest-calculation"><img src="http://img.shields.io/badge/source-ricardokovalski/interest--calculation-blue.svg" alt="Source Code"></a>
@@ -8,10 +12,16 @@
     <a href="https://github.com/ricardokovalski"><img src="http://img.shields.io/badge/author-@ricardokovalski-blue.svg" alt="Author"></a>
     <a href="https://github.com/ricardokovalski/interest-calculation/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg" alt="Read License"></a>
 </p>
+
+## Sobre
+
+ricardokovalski/interest-calculation é uma biblioteca PHP que contém as regras para cálculo de juros Simples, Compostos e Financiamento.
   
 ## Instalação
-  
-```
+
+Instale este pacote como uma dependência usando [Composer](https://getcomposer.org).
+
+```bash
 composer require ricardokovalski/interest-calculation
 ```
   
