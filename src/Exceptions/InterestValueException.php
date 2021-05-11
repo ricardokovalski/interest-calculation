@@ -1,13 +1,13 @@
 <?php
 
-namespace RicardoKovalski\InterestCalculation;
+namespace RicardoKovalski\InterestCalculation\Exceptions;
 
 use InvalidArgumentException;
 
 /**
  * Class InterestValueException
  *
- * @package RicardoKovalski\InterestCalculation
+ * @package RicardoKovalski\InterestCalculation\Exceptions
  */
 final class InterestValueException extends InvalidArgumentException
 {

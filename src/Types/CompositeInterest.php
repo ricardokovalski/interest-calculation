@@ -3,7 +3,7 @@
 namespace RicardoKovalski\InterestCalculation\Types;
 
 use RicardoKovalski\InterestCalculation\Contracts\Interest;
-use RicardoKovalski\InterestCalculation\InterestValueException;
+use RicardoKovalski\InterestCalculation\Exceptions\InterestValueException;
 
 /**
  * Class CompositeInterest
@@ -45,7 +45,7 @@ abstract class CompositeInterest implements Interest
 
     /**
      * @param $interestValue
-     * @return $this|mixed
+     * @return $this
      */
     public function appendInterestValue($interestValue)
     {
