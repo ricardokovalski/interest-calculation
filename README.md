@@ -82,3 +82,9 @@ use RicardoKovalski\InterestCalculation\Types\Simple;
 
 $interest = new Simple(2.99);
 ```
+
+## Copyright and License
+
+The ricardokovalski/interest-calculation library is copyright © [Ricardo Kovalski](https://github.com/ricardokovalski)
+and licensed for use under the terms of the
+MIT License (MIT). Please see [LICENSE](LICENSE) for more information.
