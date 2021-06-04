@@ -63,6 +63,12 @@ $interest->getInterestRates();
 
 // Verifica se o valor de InterestValue está zerado
 $interest->interestValueIsZeroed();
+
+// Obter valor do juros da 2ª parcela
+$interest->getValueCalculatedByInstallment(2);
+
+// Obter valor do juros reverso da 12ª parcela
+$interest->getReverseInterestByNumberInstallments(12);
 ```
 
 ### Outros tipos de Juros
