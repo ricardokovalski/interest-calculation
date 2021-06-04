@@ -1,7 +1,9 @@
 <?php
 
+namespace RicardoKovalski\InterestCalculation\Tests;
+
 use PHPUnit\Framework\TestCase;
-use RicardoKovalski\InterestCalculation\InterestValueException;
+use RicardoKovalski\InterestCalculation\Exceptions\InterestValueException;
 use RicardoKovalski\InterestCalculation\Types\Compound;
 
 class CompoundTest extends TestCase

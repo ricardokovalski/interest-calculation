@@ -33,4 +33,19 @@ final class Compound extends CompositeInterest implements Interest
 
         return $this->getTotalCapital() * pow((1 + $this->getInterestRates()), $numberInstallment - 1);
     }
+
+    /**
+     * @param $numberInstallments
+     * @return float|int
+     */
+    public function getReverseInterestByNumberInstallments($numberInstallments)
+    {
+        if ($this->interestValueIsZeroed() || $numberInstallments == 1) {
+            return 0.00;
+        }
+
+        $totalInterest = pow(1 + $this->getInterestRates(), $numberInstallments - 1);
+        $totalInterest = ($totalInterest - 1) * 100;
+        return $this->getTotalCapital() - ($this->getTotalCapital() * 100 / (100 + $totalInterest));
+    }
 }

@@ -11,6 +11,8 @@ interface Interest
 {
     public function getValueCalculatedByInstallment($numberInstallment);
 
+    public function getReverseInterestByNumberInstallments($numberInstallments);
+
     public function appendInterestValue($interestValue);
 
     public function appendTotalCapital($totalCapital);
