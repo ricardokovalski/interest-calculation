@@ -86,13 +86,15 @@ class CompoundTest extends TestCase
     /**
      * @dataProvider providerValueCalculatedByInstallment
      * @param $valueCalculated
+     * @param $reverseInterest
      * @param $installment
      */
-    public function testAssertEqualsValueCalculatedByInstallment($valueCalculated, $installment)
+    public function testAssertEqualsValueCalculatedByInstallment($valueCalculated, $reverseInterest, $installment)
     {
         $this->interest = new Compound(3.50);
         $this->interest->appendTotalCapital(574.78);
         $this->assertEquals($valueCalculated, $this->interest->getValueCalculatedByInstallment($installment));
+        $this->assertEquals($reverseInterest, $this->interest->getReverseInterestByNumberInstallments($installment));
     }
 
     /**
@@ -101,11 +103,11 @@ class CompoundTest extends TestCase
     public function providerValueCalculatedByInstallment()
     {
         return [
-            [574.78, 1],
-            [594.89729999999997, 2],
-            [615.71870549999994, 3],
-            [637.2688601924998, 4],
-            [659.57327029923727, 5],
+            [574.78, 0, 1],
+            [594.89729999999997, 19.437004830917772, 2],
+            [615.71870549999994, 38.21671964339885, 3],
+            [637.2688601924998, 56.361371636134095, 4],
+            [659.57327029923727, 73.89243636341456, 5],
         ];
     }
 }

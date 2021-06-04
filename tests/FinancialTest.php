@@ -78,13 +78,15 @@ class FinancialTest extends TestCase
     /**
      * @dataProvider providerValueCalculatedByInstallment
      * @param $valueCalculated
+     * @param $reverseInterest
      * @param $installment
      */
-    public function testAssertEqualsValueCalculatedByInstallment($valueCalculated, $installment)
+    public function testAssertEqualsValueCalculatedByInstallment($valueCalculated, $reverseInterest, $installment)
     {
         $this->interest = new Financial(2.75);
         $this->interest->appendTotalCapital(750.98);
         $this->assertEquals($valueCalculated, $this->interest->getValueCalculatedByInstallment($installment));
+        $this->assertEquals($reverseInterest, $this->interest->getReverseInterestByNumberInstallments($installment));
     }
 
     /**
@@ -93,11 +95,11 @@ class FinancialTest extends TestCase
     public function providerValueCalculatedByInstallment()
     {
         return [
-            [750.98, 1],
-            [782.09798138100894, 2],
-            [792.65736078101031, 3],
-            [803.31005386011498, 4],
-            [814.05601256773991, 5],
+            [750.98, 0, 1],
+            [782.09798138100894, 29.879864433668217, 2],
+            [792.65736078101031, 39.48599476636923, 3],
+            [803.31005386011498, 48.92111540124267, 4],
+            [814.05601256773991, 58.18865432700147, 5],
         ];
     }
 }

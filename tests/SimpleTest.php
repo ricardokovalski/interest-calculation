@@ -78,13 +78,15 @@ class SimpleTest extends TestCase
     /**
      * @dataProvider providerValueCalculatedByInstallment
      * @param $valueCalculated
+     * @param $reverseInterest
      * @param $installment
      */
-    public function testAssertEqualsValueCalculatedByInstallment($valueCalculated, $installment)
+    public function testAssertEqualsValueCalculatedByInstallment($valueCalculated, $reverseInterest, $installment)
     {
         $this->interest = new Simple(3.75);
         $this->interest->appendTotalCapital(100.65);
         $this->assertEquals($valueCalculated, $this->interest->getValueCalculatedByInstallment($installment));
+        $this->assertEquals($reverseInterest, $this->interest->getReverseInterestByNumberInstallments($installment));
     }
 
     /**
@@ -93,11 +95,11 @@ class SimpleTest extends TestCase
     public function providerValueCalculatedByInstallment()
     {
         return [
-            [100.65, 1],
-            [104.42437500000001, 2],
-            [104.42437500000001, 3],
-            [104.42437500000001, 4],
-            [104.42437500000001, 5],
+            [100.65, 0, 1],
+            [104.42437500000001, 3.7743750000000063, 2],
+            [104.42437500000001, 3.7743750000000063, 3],
+            [104.42437500000001, 3.7743750000000063, 4],
+            [104.42437500000001, 3.7743750000000063, 5],
         ];
     }
 }
